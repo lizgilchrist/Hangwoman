@@ -17,6 +17,17 @@ namespace Hangwoman
             //NOTE: Whoever wins will start and it's their turn to chose each word until they lose.
             Console.WriteLine(leader + ", please enter your secret word into the computer");
             string secretWord = Console.ReadLine();
+            Console.Clear();
+
+            foreach(char i in secretWord)
+            {
+                string displaySecretWord = "_" + " ";
+                Console.Write(displaySecretWord);
+            }
+            Console.WriteLine();
+            Console.WriteLine(challenger + " take a guess at the secret word by choosing any letter of the alphabet");
+            
+            //NOTE: Replace every letter with a _ dash on screen
         }
     }
 }
