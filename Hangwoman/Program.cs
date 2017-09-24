@@ -31,7 +31,7 @@ namespace Hangwoman
 
             List<char> guesses = new List<char>();
             //the loop will end when either the secretWord has been guessed or the woman is hung
-            while (true)
+            while (!IsSecretWordGuessed(secretWord, guesses))
             {
                 Console.WriteLine();
                 Console.WriteLine(challenger + " please guess any letter of the alphabet");
@@ -100,6 +100,19 @@ namespace Hangwoman
             }
 
             return guessedLetter;
+        }
+
+        private static bool IsSecretWordGuessed(string secretWord, List<char> guesses)
+        {
+            foreach (char letter in secretWord)
+            {
+                if (!guesses.Contains(letter))
+                {
+                    return false;
+                }
+                
+            }
+            return true;
         }
     }
 }
