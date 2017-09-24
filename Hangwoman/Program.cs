@@ -33,7 +33,6 @@ namespace Hangwoman
             //the loop will end when either the secretWord has been guessed or the woman is hung
             while (true)
             {
-
                 Console.WriteLine();
                 Console.WriteLine(challenger + " please guess any letter of the alphabet");
                 char guessedLetter = GetGuessedLetter();
@@ -49,7 +48,6 @@ namespace Hangwoman
                 {
                     Console.WriteLine("Sorry but " + guessedLetter + " is not a letter from the secret word! Please try again");
                 }
-
 
                 SecretWordDisplay(secretWord, guesses);
 
@@ -89,16 +87,15 @@ namespace Hangwoman
             */
         }
 
-
         private static char GetGuessedLetter()
         {
-            string guess = Console.ReadLine();
+            string guess = Console.ReadLine().ToLower();
             char guessedLetter = guess[0];
-            //TODO: Validations in here
+           
             while (!char.IsLetter(guessedLetter))
             {
                 Console.WriteLine("Sorry, that's not a valid answer. Please key in a letter of the alphabet (a-z)");
-                guess = Console.ReadLine();
+                guess = Console.ReadLine().ToLower();
                 guessedLetter = guess[0];
             }
 
