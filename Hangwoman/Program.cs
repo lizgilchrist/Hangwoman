@@ -17,7 +17,7 @@ namespace Hangwoman
             Console.WriteLine("Great! It's " + leader + " vs " + challenger + "! LETS START!");
             Console.WriteLine();
             //NOTE: Whoever won last round this is where they will start - print current score
-            Console.WriteLine(leader + ", please enter your secret word into the computer");
+            Console.WriteLine(leader + ", please enter your secret word into the computer");    
             string secretWord = Console.ReadLine();
             Console.Clear();
 
@@ -33,7 +33,7 @@ namespace Hangwoman
 
             List<char> guesses = new List<char>();
 
-            while (!IsSecretWordGuessed(secretWord, guesses) || numberOfIncorrectGuesses > 10)
+            while (!IsSecretWordGuessed(secretWord, guesses) || numberOfIncorrectGuesses <= 10)
             {
                 Console.WriteLine();
                 Console.WriteLine(challenger + " please guess any letter of the alphabet");
@@ -56,7 +56,7 @@ namespace Hangwoman
 
             }
 
-            if(numberOfIncorrectGuesses > 10)
+            if(numberOfIncorrectGuesses == 10)
             {
                 Console.WriteLine();
                 Console.WriteLine("Unfortunately, " + challenger + " you havn't guessed the secret word in time! You've lost this one :( ");
