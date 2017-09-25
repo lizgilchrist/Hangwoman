@@ -29,9 +29,11 @@ namespace Hangwoman
 
             char correctLetter;
 
+            int numberOfIncorrectGuesses = 0;
+
             List<char> guesses = new List<char>();
             //the loop will end when either the secretWord has been guessed or the woman is hung
-            while (!IsSecretWordGuessed(secretWord, guesses))
+            while (!IsSecretWordGuessed(secretWord, guesses) || numberOfIncorrectGuesses > 10)
             {
                 Console.WriteLine();
                 Console.WriteLine(challenger + " please guess any letter of the alphabet");
@@ -47,6 +49,7 @@ namespace Hangwoman
                 else
                 {
                     Console.WriteLine("Sorry but " + guessedLetter + " is not a letter from the secret word! Please try again");
+                    numberOfIncorrectGuesses++;
                 }
 
                 SecretWordDisplay(secretWord, guesses);
