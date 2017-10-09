@@ -31,7 +31,7 @@ namespace Hangwoman
                     Console.WriteLine();
                     Console.WriteLine("Unfortunately, " + challenger.Name + " you havn't guessed the secret word in time! You've lost this one :( ");
 
-                    // Add to leader's score
+                    leader.Score++;
                 }
                 else
                 {
@@ -42,9 +42,13 @@ namespace Hangwoman
                     leader = challenger;
                     challenger = oldLeader;
 
+                    leader.Score++;
                     // Swap leader and challenger variables
                 }
 
+                Console.WriteLine();
+                Console.WriteLine("The score is: " + _player1.Name + ": " + _player1.Score + " and " + _player2.Name + ": " + _player2.Score);
+                Console.WriteLine();
                 // Repeat round?
                 Console.WriteLine("Would you like to continue playing? (Yes/No)");
                 string playAgain = Console.ReadLine().ToLower();

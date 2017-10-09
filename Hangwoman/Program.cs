@@ -20,8 +20,8 @@ namespace Hangwoman
             Console.WriteLine();
 
             Game game = new Game(
-                new Player() { Name = leader },
-                new Player() { Name = challenger}
+                new Player() { Name = leader, Score = 0 },
+                new Player() { Name = challenger, Score = 0 }
                 );
 
             game.Start();
